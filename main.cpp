@@ -1,13 +1,27 @@
 #include <iostream>
+#include <string>
+
+int countVowels(std::string s) 
+{
+    int result{};
+    
+    for (int i = 0; i < s.length(); i++) 
+    {
+        if (std::tolower(s[i]) == 'a' || std::tolower(s[i]) == 'e' || std::tolower(s[i]) == 'i' || std::tolower(s[i]) == 'o' || std::tolower(s[i]) == 'u') 
+        {
+            result += 1;
+        }
+    }
+
+    return result;
+}
+
 
 int main() {
-    int x{};
-    std::cout << "Enter a number: ";
-    std::cin >> x;
+    std::string input{};
 
-    if(x % 2 == 0) {
-        std::cout << "Even number";
-    } else 
-        std::cout << "Odd number";
+    std::cout << "Enter a string: ";
+    std::getline(std::cin,input);
 
+    std::cout << "The number of vowels is: " << countVowels(input);
 }
